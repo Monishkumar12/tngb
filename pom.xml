@@ -7,6 +7,8 @@
   <version>dev1</version>
   <name>WebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <!-- Dependencies -->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -15,17 +17,35 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
+
+  <!-- Build Configuration -->
   <build>
     <finalName>WebApp</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-  </build>   
+
+    <!-- Plugin Management -->
+    <pluginManagement>
+      <plugins>
+        <!-- Compiler Plugin -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <source>1.8</source> <!-- Java version for source code -->
+            <target>1.8</target> <!-- Java version for compiled code -->
+          </configuration>
+        </plugin>
+
+        <!-- WAR Plugin -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.4.0</version> <!-- Use the latest version -->
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Optional: Avoid errors if web.xml is missing -->
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
