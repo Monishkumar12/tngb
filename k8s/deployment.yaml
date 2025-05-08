@@ -15,7 +15,7 @@ spec:
         app: webapp
     spec:
       containers:
-        - image: quay.io/monishkumar/tngbdemo:latest
+        - image: {{IMAGE}}
           imagePullPolicy: Always
           name: webapp
           ports:
